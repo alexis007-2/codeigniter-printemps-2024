@@ -37,4 +37,23 @@ class Home2 extends BaseController
         ];
         return view('Home2/helloWorld3',$data);
     }
+
+    public function helloWorld4():string
+    {
+        $data = [
+            "title"=> "Mon super titre",
+            "paragraphe"=>"coucou salut"
+        ];
+        return view('Home2/helloWorld4',$data);
+    }
+
+    public function identite2(string $nom,string $prenom,int $age)
+    {
+        $data = [
+            "nom"=>$nom,
+            "prenom"=>$prenom,
+            "age"=>$age
+        ];
+        return view('Home2/identite2',$data);
+    }
 }

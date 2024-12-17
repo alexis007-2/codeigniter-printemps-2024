@@ -1,0 +1,1 @@
+<p> Bonjour je m' appelle <?=$nom?> <?=$prenom?> et j' ai <?=$age?>
