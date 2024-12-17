@@ -20,3 +20,13 @@ $routes->get('/hello-world-3','Home2::helloWorld3');
 $routes->get('/ma-voiture/(:alphanum)/(:num)','Voiture::maVoiture/$1/$2');
 $routes->get('/hello-world-4','Home2::helloWorld4');
 $routes->get('/identite2/(:alpha)/(:alpha)/(:num)','Home2::identite2/$1/$2/$3');
+$routes->get('/list-resto','Home2::listResto');
+$routes->get('/list-tele','Home2::listTele');
+
+
+
+
+
+
+
+

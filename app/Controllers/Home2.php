@@ -56,4 +56,22 @@ class Home2 extends BaseController
         ];
         return view('Home2/identite2',$data);
     }
+
+    public function listResto()
+    {
+        $data = [
+            "title"=>"Liste des restaurants",
+            "resto"=>['Burger King','Hipopotamus','Bistro Régent','Flunch']
+        ];
+        return view('Home2/listResto',$data);
+    }
+
+    public function listTele()
+    {
+        $data = [
+            "title"=>"Les télévisions",
+            "tele"=>['LG','Haier','JVC','TCL','Sony']
+        ];
+        return view('Home2/listTele',$data);
+    }
 }
