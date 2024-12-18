@@ -18,4 +18,14 @@ class Voiture extends BaseController
     {
         echo 'Ma voiture est une '.$model.' et elle a '.$km.' km';
     }
+
+    public function maVoiture2(string $model,int $km):string
+    {
+        $data = [
+            "model"=>$model,
+            "km"=>$km,
+            "options"=>['climatisation','ABS','Apple auto','Regulateur de vitesse','Caméra de recul']
+        ];
+        return view('Voiture/maVoiture2',$data);
+    }
 }
