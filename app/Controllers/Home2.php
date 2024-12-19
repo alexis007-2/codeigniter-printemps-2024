@@ -47,7 +47,7 @@ class Home2 extends BaseController
         return view('Home2/helloWorld4',$data);
     }
 
-    public function identite2(string $nom,string $prenom,int $age)
+    public function identite2(string $nom,string $prenom,int $age):string
     {
         $data = [
             "nom"=>$nom,
@@ -57,7 +57,7 @@ class Home2 extends BaseController
         return view('Home2/identite2',$data);
     }
 
-    public function listResto()
+    public function listResto():string
     {
         $data = [
             "title"=>"Liste des restaurants",
@@ -66,12 +66,39 @@ class Home2 extends BaseController
         return view('Home2/listResto',$data);
     }
 
-    public function listTele()
+    public function listTele():string
     {
         $data = [
             "title"=>"Les télévisions",
             "tele"=>['LG','Haier','JVC','TCL','Sony']
         ];
         return view('Home2/listTele',$data);
+    }
+
+    public function testVue():string
+    {
+        $data = [
+            "title"=>"test vue html",
+            "body"=>"Ceci est un test de vue bootstrap"
+        ];
+        return view('Home2/testVue',$data);
+    }
+
+    public function testVue2(string $nom,string $prenom):string
+    {
+        $data = [
+            "title"=>"test vue2",
+            "nom"=>$nom,
+            "prenom"=>$prenom
+        ];
+        return view('Home2/testVue2',$data);
+    }
+
+    public function testVue3():string
+    {
+        $data = [
+            "title"=>"test vue 3"
+        ];
+        return view ('Home2/testVue3',$data);
     }
 }
