@@ -1,0 +1,1 @@
+alert('Bonne année 2025');

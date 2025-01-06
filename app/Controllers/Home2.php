@@ -101,4 +101,20 @@ class Home2 extends BaseController
         ];
         return view ('Home2/testVue3',$data);
     }
+
+    public function testVue4():string
+    {
+        $data = [
+            "title"=>"test vue 4"  
+        ];
+        return view('Home2/testVue4',$data);
+    }
+
+    public function testVue5():string
+    {
+        $data = [
+            "title"=>"test vue 5"  
+        ];
+        return view('Home2/testVue5',$data);
+    }
 }
