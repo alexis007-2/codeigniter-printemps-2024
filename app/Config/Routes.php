@@ -28,7 +28,7 @@ $routes->get('/test-vue-2/(:alpha)/(:alpha)','Home2::testVue2/$1/$2');
 $routes->get('/test-vue-3','Home2::testVue3');
 $routes->get('/test-vue-4','Home2::testVue4');
 $routes->get('/test-vue-5','Home2::testVue5');
-
+$routes->get('/tous-les-tags','Tag::cListAllTag');
 
 
 

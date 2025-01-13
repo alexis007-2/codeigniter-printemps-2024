@@ -117,4 +117,3 @@ class Home2 extends BaseController
         ];
         return view('Home2/testVue5',$data);
     }
-}
