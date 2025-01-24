@@ -29,9 +29,10 @@ $routes->get('/test-vue-3','Home2::testVue3');
 $routes->get('/test-vue-4','Home2::testVue4');
 $routes->get('/test-vue-5','Home2::testVue5');
 $routes->get('/tous-les-tags','Tag::cListAllTag');
-
-
-
+$routes->get('/toutes-les-categories','Categorie::cListAllCategorie');
+$routes->get('/tag/(:num)','Tag::cListOneTag/$1');
+$routes->get('/tag-decroissant','Tag::cListAllTagDesc');
+$routes->get('/count-tag','Tag::cCountTag');
 
 
 

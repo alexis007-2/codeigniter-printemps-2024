@@ -27,4 +27,30 @@ class Tag extends BaseController
         return view('Tag/cListAllTag',$data);
 
     }
+
+    public function cListOneTag(int $idtag):string
+    {
+        $tag = $this->model->listOneTag($idtag);
+        $data = [
+            "title"=>"Mon tag",
+            "tag"=>$tag
+        ];
+        return view('Tag/cListOneTag',$data);
+    }
+
+    public function cListAllTagDesc():string
+    {
+        $tags = $this->model->listAllTagDesc();
+        $data = [
+            "title"=>"Tag par ordre decroissant",
+            "tags"=>$tags
+        ];
+        return view('Tag/cListAllTagDesc',$data);
+    }
+
+    public function cCountTag():void
+    {
+        $c = $this->model->countTag();
+        echo $c;
+    }
 }
