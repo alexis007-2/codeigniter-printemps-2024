@@ -53,4 +53,57 @@ class Tag extends BaseController
         $c = $this->model->countTag();
         echo $c;
     }
+
+    public function cLimitTag(int $limit):string
+    {
+        $tags = $this->model->limitTag($limit);
+        $data = [
+            "tags"=>$tags
+        ];
+        return view('Tag/cLimitTag',$data);
+    }
+
+    public function cAddTag():string
+    {
+        $data = 
+        [
+            "nom_tag"=>"Budget"
+        ];
+        if($this->model->addTag($data))
+        {
+            return view('success');
+        }
+        else
+        {
+           return view('fail'); 
+        }
+    }
+
+    public function cUpdateTag(int $idtag):string
+    {
+        $data = [
+            "nom_tag"=>"Budget 2025"
+        ];
+        if($this->model->updateTag($idtag,$data))
+        {
+            return view('success');
+        }
+        else
+        {
+            return view('fail');
+        }
+
+    }
+
+    public function cDeleteTag(int $idtag):string
+    {
+        if($this->model->deleteTag($idtag))
+        {
+            return view('success');
+        }
+        else
+        {
+            return view('fail');
+        }
+    }
 }

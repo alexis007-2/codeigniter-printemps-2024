@@ -43,6 +43,28 @@ class TagModel extends Model
 
     public function countTag():int
     {
+        // équivalent à SELECT COUNT(*) FROM tag
         return $this->countAll();
     }
+
+    public function limitTag(int $limit):array
+    {
+        return $this->limit($limit)->get()->getResult();
+    }
+
+    public function addTag(array $data):bool
+    {
+        return $this->insert($data);
+    }
+
+    public function updateTag(int $idtag,array $data):bool
+    {
+        return $this->update($idtag,$data);
+    }
+
+    public function deleteTag(int $idtag):bool
+    {
+        return $this->delete($idtag);
+    }
+
 }

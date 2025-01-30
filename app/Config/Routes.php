@@ -33,6 +33,10 @@ $routes->get('/toutes-les-categories','Categorie::cListAllCategorie');
 $routes->get('/tag/(:num)','Tag::cListOneTag/$1');
 $routes->get('/tag-decroissant','Tag::cListAllTagDesc');
 $routes->get('/count-tag','Tag::cCountTag');
+$routes->get('/limit-tag/(:num)','Tag::cLimitTag/$1');
+$routes->get('/add-tag','Tag::cAddTag');
+$routes->get('/majtag/(:num)','Tag::cUpdateTag/$1');
+$routes->get('/suptag/(:num)','Tag::cDeleteTag/$1');
 
 
 
