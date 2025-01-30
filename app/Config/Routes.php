@@ -37,6 +37,9 @@ $routes->get('/limit-tag/(:num)','Tag::cLimitTag/$1');
 $routes->get('/add-tag','Tag::cAddTag');
 $routes->get('/majtag/(:num)','Tag::cUpdateTag/$1');
 $routes->get('/suptag/(:num)','Tag::cDeleteTag/$1');
+$routes->get('/add-categorie','Categorie::cAddCategorie');
+$routes->get('/maj-categorie/(:num)','Categorie::cUpdateCategorie/$1');
+$routes->get('/sup-categorie/(:num)','Categorie::cDeleteCategorie/$1');
 
 
 

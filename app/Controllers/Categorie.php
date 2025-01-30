@@ -26,4 +26,47 @@ class Categorie extends BaseController
         return view('Categorie/cListAllCategorie',$data);
 
     }
+
+    public function cAddCategorie():string
+    {
+        $data = [
+            "nom_categorie" =>"Rugby"
+        ];
+        if($this->model->addCategorie($data))
+        {
+            return view('success');
+        }
+        else
+        {
+            return view('fail');
+        }
+    }
+
+    public function cUpdateCategorie($idCategorie):string
+    {
+        $data =[
+            "nom_categorie"=>"Basket Ball"
+        ];
+        if($this->model->updateCategorie($data,$idCategorie))
+        {
+            return view('success');
+        }
+        else
+        {
+            return view('fail');
+        }
+
+    }
+
+    public function cDeleteCategorie(int $idCategorie)
+    {
+        if($this->model->deleteCategorie($idCategorie))
+        {
+            return view('success');
+        }
+        else
+        {
+            return view ('fail');
+        }
+    }
 }
