@@ -40,6 +40,12 @@ $routes->get('/suptag/(:num)','Tag::cDeleteTag/$1');
 $routes->get('/add-categorie','Categorie::cAddCategorie');
 $routes->get('/maj-categorie/(:num)','Categorie::cUpdateCategorie/$1');
 $routes->get('/sup-categorie/(:num)','Categorie::cDeleteCategorie/$1');
+$routes->get('/tous-les-utilisateurs','User::cListAllUser');
+$routes->get('/utilisateur/(:num)','User::cListOneUser/$1');
+$routes->get('/add-user','User::cAddUser');
+$routes->get('/maj-user/(:num)','User::cUpdateUser/$1');
+$routes->add('/add-tag-form','Tag::cAddTagForm');
+
 
 
 

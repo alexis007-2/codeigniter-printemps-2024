@@ -7,6 +7,7 @@ class Tag extends BaseController
 
     public function __construct()
     {
+        helper('form');
         $this->model = model('TagModel');
     }
 
@@ -104,6 +105,55 @@ class Tag extends BaseController
         else
         {
             return view('fail');
+        }
+    }
+
+    public function cAddTagForm():string
+    {
+        // Si on n' a rien envoyer dans le formulaire
+        if($this->request->is('post')==false)
+        {
+            //Affichage par defaut du formulaire
+            return view('Tag/cAddTagForm');
+        }
+        else
+        {
+            // Le formulaire a été envoyé et on va passer au regle de validation
+            $rule = [
+                "nom_tag"=>[
+                    "label"=>"nom du tag",
+                    "rules"=>"min_length[2]|max_length[20]|alpha_numeric|required",
+                    "errors"=>[
+                        "min_length"=>"Tag trop court",
+                        "max_length"=>"Tag trop long",
+                        "alpha_numeric"=>"Doit contenir des lettres et des chiffres",
+                        "required"=>"Tag obligatoire"
+                    ]
+                ]
+
+            ];
+            
+            if($this->validate($rule)==false)
+                //La validation a echoué et ca retourne la vue avec les erreurs trouvées
+                return view('Tag/cAddTagForm');
+            else
+            {
+                // Equivalent à $_POST['nom_tag]
+                $nomTag = $this->request->getPostGet('nom_tag');
+                $data = [
+                    "nom_tag"=>$nomTag
+                ];
+                if($this->model->addTag($data))
+                {
+                    return view('success');
+                }
+                else
+                {
+                   return view('fail'); 
+                }
+
+            }
+
         }
     }
 }
