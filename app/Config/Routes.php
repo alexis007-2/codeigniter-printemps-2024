@@ -45,6 +45,8 @@ $routes->get('/utilisateur/(:num)','User::cListOneUser/$1');
 $routes->get('/add-user','User::cAddUser');
 $routes->get('/maj-user/(:num)','User::cUpdateUser/$1');
 $routes->add('/add-tag-form','Tag::cAddTagForm');
+$routes->add('/add-categorie-form','Categorie::cAddCategorieForm');
+$routes->add('/add-user-form','User::cAddUserForm');
 
 
 

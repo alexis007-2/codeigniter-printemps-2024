@@ -7,6 +7,7 @@ class Categorie extends BaseController
 
     public function __construct()
     {
+        helper('form');
         $this->model = model('CategorieModel');
     }
 
@@ -67,6 +68,48 @@ class Categorie extends BaseController
         else
         {
             return view ('fail');
+        }
+    }
+
+    public function cAddCategorieForm():string
+    {
+        if($this->request->is('post')==false)
+        {
+            return view('Categorie/cAddCategorieForm');
+        }
+
+        $rule = [
+            "nom_categorie"=>[
+                "label"=>"Nom de la catégorie",
+                "rules"=>"min_length[2]|max_length[50]|alpha_numeric|required",
+                "errors"=>[
+                    "min_length"=>"Catégoirie trop courte",
+                    "max_length"=>"Catégorie trop longue",
+                    "alpha_numeric"=>"Doit contenir lettre et chiffre",
+                    "required"=>"Catégorie obligatoire"
+                ]
+            ]
+
+        ];
+        if($this->validate($rule)==false)
+        {
+            return view('Categorie/cAddCategorieForm');
+        }
+        else
+        {
+            $categorie = $this->request->getPostGet('nom_categorie');
+            $data = [
+                "nom_categorie"=>$categorie
+            ];
+            if($this->model->addCategorie($data))
+            {
+                return view('success');
+            }
+            else
+            {
+                return view('fail');
+            }
+
         }
     }
 }
