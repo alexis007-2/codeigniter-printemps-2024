@@ -49,6 +49,8 @@ $routes->add('/add-categorie-form','Categorie::cAddCategorieForm');
 $routes->add('/add-user-form','User::cAddUserForm');
 $routes->get('/tous-les-articles','Article::cListAllArticle');
 $routes->get('/un-article/(:num)','Article::cListOneArticle/$1');
+$routes->get('un-article-commentaire/(:num)','Article::cOneArticleCommentaire/$1');
+$routes->add('add-article-form','Article::cAddArticleForm');
 
 
 

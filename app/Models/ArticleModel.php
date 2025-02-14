@@ -20,4 +20,14 @@ class ArticleModel extends Model
     {
         return $this->where('idarticle',$idarticle)->get()->getRow();
     }
+
+    public function oneArticleCommentaire(int $idarticle):array
+    {
+        return $this->select('commentaire.pseudo_commentaire,commentaire.contenu_commentaire,commentaire.date_commentaire,article.titre,article.contenu,article.image,article.date_de_creation')->join('commentaire','commentaire.article_id = article.idarticle')->where('idarticle',$idarticle)->get()->getResult();
+    }
+
+    public function addArticle(array $data):bool
+    {
+        return $this->insert($data);
+    }
 }
