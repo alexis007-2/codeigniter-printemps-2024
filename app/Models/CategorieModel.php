@@ -18,7 +18,7 @@ class CategorieModel extends Model
      */
     public function listAllCategorie(): array
     {
-        // Equivalent à SELECT * FROM categorie
+        // Equivalent en SQL à SELECT * FROM categorie
         return $this->get()->getResult();
     }
 
