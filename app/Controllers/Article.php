@@ -139,4 +139,37 @@ class Article extends BaseController
             }
         }
     }
+
+    public function uploadPdf():string
+    {
+        if($this->request->is('post')==false)
+        {
+            return view('Article/uploadPdf');
+        }
+        else
+        {
+            $rule = [
+                "pdf"=>[
+                    "label"=>"pdf",
+                    "rules"=>"uploaded[pdf]|max_size[pdf,102400]|mime_in[pdf,application/pdf]",
+                    "errors"=>[
+                        "uploaded"=>"pdf  pas chargée",
+                        "max_size"=>"Image de grande taille",
+                        "mime_in"=>"Mine type non autorisé"
+                    ]
+                ]
+                ];
+            if($this->validate($rule)==false)
+            {
+                return view('Article/uploadPdf');
+            }
+            else
+            {
+                $pdf = $this->request->getFile('pdf');
+                $name = $pdf->getName();
+                $pdf->move('public/upload',$name);
+                return view('success');
+            }
+        }
+    }
 }

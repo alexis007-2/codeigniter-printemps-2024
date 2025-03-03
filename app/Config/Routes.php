@@ -52,7 +52,7 @@ $routes->get('/un-article/(:num)','Article::cListOneArticle/$1');
 $routes->get('un-article-commentaire/(:num)','Article::cOneArticleCommentaire/$1');
 $routes->add('add-article-form','Article::cAddArticleForm');
 $routes->add('/upload-image','Article::uploadImage');
-
+$routes->add('/upload-pdf','Article::uploadPdf');
 
 
 
