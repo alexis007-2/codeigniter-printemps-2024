@@ -63,3 +63,6 @@ _modules/*
 
 /results/
 /phpunit*.xml
+*.jpg
+*.jpg
+*.pdf

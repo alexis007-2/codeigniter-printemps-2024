@@ -105,4 +105,38 @@ class Article extends BaseController
             }
         }
     }
+
+    public function uploadImage():string
+    {
+        if($this->request->is('post')==false)
+        {
+            return view('Article/uploadImage');
+        }
+        else
+        {
+            $rule = [
+                "image"=>[
+                    "label"=>"image",
+                    "rules"=>"uploaded[image]|max_size[image,10240]|mime_in[image,image/png,image/jpeg,image/webp]|is_image[image]",
+                    "errors"=>[
+                        "uploaded"=>"Image pas chargée",
+                        "max_size"=>"Image de grande taille",
+                        "mime_in"=>"Mine type non autorisé",
+                        "is_image"=>"Le fichier est pas une image"
+                    ]
+                ]
+                ];
+            if($this->validate($rule)==false)
+            {
+                return view('Article/uploadImage');
+            }
+            else
+            {
+                $image = $this->request->getFile('image');
+                $name = $image->getName();
+                $image->move('public/upload',$name);
+                return view('success');
+            }
+        }
+    }
 }
