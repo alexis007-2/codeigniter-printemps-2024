@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ApiModel;
 use CodeIgniter\Router\RouteCollection;
 
 /**
@@ -53,7 +54,12 @@ $routes->get('un-article-commentaire/(:num)','Article::cOneArticleCommentaire/$1
 $routes->add('add-article-form','Article::cAddArticleForm');
 $routes->add('/upload-image','Article::uploadImage');
 $routes->add('/upload-pdf','Article::uploadPdf');
-
+$routes->get('/products','Api::cAllProduct');
+$routes->get('/products/(:num)','Api::cOneProduct/$1');
+$routes->get('/add-product','Api::cInsertProduct');
+$routes->get('/update-product/(:num)','Api::cUpdateProduct/$1');
+$routes->get('/delete-product/(:num)','Api::cDeleteProduct/$1');
+$routes->get('/meteo','Api::cMeteo');
 
 
 
