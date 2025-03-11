@@ -60,6 +60,7 @@ $routes->get('/add-product','Api::cInsertProduct');
 $routes->get('/update-product/(:num)','Api::cUpdateProduct/$1');
 $routes->get('/delete-product/(:num)','Api::cDeleteProduct/$1');
 $routes->get('/meteo','Api::cMeteo');
+$routes->get('/envoie-mail','Contact::sendEmail');
 
 
 
