@@ -74,7 +74,7 @@ class ApiModel extends Model
                 "lon"=>$lon,
                 "units"=>"metric",
                 "lang"=>"fr",
-                "appid"=>"a52cd575cd57e9a9faf0ff59f1b122e7"
+                "appid"=>"xxxxxxxxxxx"
             ]
             ]);
             $response = $request->getBody();
